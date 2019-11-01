@@ -1,0 +1,71 @@
+{
+  "name": "autodoc",
+  "version": "0.0.1",
+  "description": "RESTful web API Documentation Generator",
+  "author": "jesse peng<2912150017@qq.com>",
+  "license": "MIT",
+  "preferGlobal": true,
+  "bin": "bin/autodoc",
+  "main": "./lib/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/suifengpiao14/autodoc.git"
+  },
+  "bugs": {
+    "url": "https://github.com/suifengpiao14/autodoc/issues"
+  },
+  "scripts": {
+    "test": "npm run jshint && mocha test/",
+    "jshint": "jshint lib/ test/",
+    "build-example": "bin/autodoc -i example/ -o tmp/",
+    "update-lodash": "./node_modules/lodash-cli/bin/lodash -p -o template/vendor/lodash.custom.min.js include=groupBy,each,extend,some exports=amd"
+  },
+  "keywords": [
+    "auto",
+    "swagger",
+    "openapi",
+    "api",
+    "apidoc",
+    "doc",
+    "documentation",
+    "rest",
+    "restful"
+  ],
+  "engines": {
+    "node": ">= 0.12.0"
+  },
+  "dependencies": {
+    "apidoc-openapi": "git+https://github.com/suifengpiao14/apidoc-openapi.git#v0.0.1",
+    "chokidar": "^3.2.3",
+    "commander": "^3.0.2",
+    "lodash": "^4.17.15",
+    "nomnom": "^1.8.1",
+    "path": "^0.12.7"
+  },
+  "jshintConfig": {
+    "camelcase": true,
+    "curly": false,
+    "eqeqeq": true,
+    "forin": true,
+    "latedef": false,
+    "newcap": true,
+    "undef": true,
+    "unused": true,
+    "trailing": true,
+    "node": true,
+    "browser": true,
+    "predef": [
+      "it",
+      "describe",
+      "before",
+      "after"
+    ]
+  },
+  "devDependencies": {
+    "gulp": "^4.0.2"
+  },
+  "pkg": {
+    "scripts": "node_modules/apidoc-core/lib/**/*.js",
+    "assets": ["template/**/*"]
+  }
+}
