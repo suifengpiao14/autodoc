@@ -1,0 +1,3 @@
+[submodule "documentation-starter"]
+	path = documentation-starter
+	url = https://github.com/LucyBot-Inc/documentation-starter

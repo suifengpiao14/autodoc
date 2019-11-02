@@ -13,8 +13,12 @@
 var path   = require('path');
 var nomnom = require('nomnom');
 var autodoc = require('../lib/index');
+var server = require('../lib/server');
 
 var argv = nomnom
+    
+    .option('server', { abbr: 's', 'default': false, help: 'start http server.' })
+
     .option('file-filters', { abbr: 'f', 'default': '.*\\.(clj|coffee|cs|dart|erl|go|java|scala|js|php?|py|rb|ts|pm)$',
             help: 'RegEx-Filter to select files that should be parsed (multiple -f can be used).' })
 
@@ -137,9 +141,15 @@ var options = {
     silent        : argv['silent'],
     simulate      : argv['simulate'],
     markdown      : argv['markdown'],
-    marked        : resolveMarkdownOptions(argv)
+    marked        : resolveMarkdownOptions(argv),
+    server        : argv["server"]
 };
 
-if (autodoc.watch(options) === false) {
-    process.exit(1);
+if(options.server){
+    // start http server 
+    server.app.start(options);
+}else{
+    if (autodoc.watch(options) === false) {
+        process.exit(1);
+    }
 }
