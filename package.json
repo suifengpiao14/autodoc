@@ -35,13 +35,14 @@
     "node": ">= 0.12.0"
   },
   "dependencies": {
-    "apidoc-openapi": "git+https://github.com/suifengpiao14/apidoc-openapi.git#v0.0.1",
+    "apidoc-openapi": "git+https://github.com/suifengpiao14/apidoc-openapi.git",
     "chokidar": "^3.2.3",
     "commander": "^3.0.2",
     "express": "^4.17.1",
     "lodash": "^4.17.15",
     "nomnom": "^1.8.1",
     "path": "^0.12.7",
+    "request": "^2.88.0",
     "widdershins": "^3.6.7"
   },
   "jshintConfig": {
@@ -68,6 +69,8 @@
   },
   "pkg": {
     "scripts": "node_modules/apidoc-core/lib/**/*.js",
-    "assets": ["documentation-starter/**/*"]
+    "assets": [
+      "documentation-starter/**/*"
+    ]
   }
 }
